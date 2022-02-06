@@ -6,7 +6,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o speech-http .
 FROM debian:buster-slim
 
 RUN apt-get -y update && apt-get -y install build-essential pkg-config wget scons libao4 libao-dev python-lxml lame \
-	&& cd /root && wget -nv --show-progress --progress=bar:force:noscroll https://github.com/Olga-Yakovleva/RHVoice/archive/1.2.2.tar.gz \
+	&& cd /root && wget -nv --show-progress --progress=bar:force:noscroll https://github.com/Olga-Yakovleva/RHVoice/archive/1.6.0.tar.gz \
 	&& tar xzvf 1.2.2.tar.gz && cd RHVoice-1.2.2 \
 	&& scons -j8 --config=force && scons install && ldconfig \
 	&& apt-get purge -y build-essential pkg-config wget scons python-lxml \
