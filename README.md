@@ -1,4 +1,4 @@
-# speech-http
+# speech-http - RHVoice 1.6.0 with http api
 
 docker run -d --restart=always -p 8048:8048 --log-opt max-size=50m --name=speech-http krol44/speech-http
 
