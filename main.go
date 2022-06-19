@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"net/url"
 	"os/exec"
 	"strings"
 )
@@ -18,9 +19,11 @@ func main() {
 		}
 
 		voice := vars[1]
-		text := vars[2]
+		text, _ := url.QueryUnescape(vars[2])
 
-		cmd := exec.Command("/speech.sh",  voice, text)
+		log.Println("text: ", text)
+
+		cmd := exec.Command("/speech.sh", voice, text)
 
 		stdout, err := cmd.Output()
 		if err != nil {

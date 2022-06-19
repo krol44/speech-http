@@ -1,4 +1,4 @@
-FROM golang:1.17-buster as builder
+FROM golang:1.18-buster as builder
 WORKDIR /app
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o speech-http .
